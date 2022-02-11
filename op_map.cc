@@ -1039,10 +1039,13 @@ struct ResizeMapper
                               (output_shape[0] % input_shape[2]));
     // turn off bilinear optimization by default.
     bool enable_bilinear = false;
+    bool can_resize_to_transposeconv = false;
+    /*
     bool can_resize_to_transposeconv =
         is_scale_integer &&
         ((enable_bilinear && resizeType == tim::vx::ResizeType::BILINEAR) ||
          (resizeType == tim::vx::ResizeType::NEAREST_NEIGHBOR));
+    */
 
     if (can_resize_to_transposeconv) {
       return ResizeToTransposeConv(
